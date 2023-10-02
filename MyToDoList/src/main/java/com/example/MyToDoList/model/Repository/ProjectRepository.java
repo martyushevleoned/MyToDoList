@@ -1,6 +1,6 @@
-package com.example.MyToDoList.model.Repository;
+package com.example.MyToDoList.model.repository;
 
-import com.example.MyToDoList.model.Entity.Project;
+import com.example.MyToDoList.model.entity.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {

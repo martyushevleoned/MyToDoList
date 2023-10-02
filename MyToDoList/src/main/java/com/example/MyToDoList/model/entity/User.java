@@ -5,21 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "projects")
+@Table(name = "users")
 @Data
 @NoArgsConstructor
-public class Project {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long userId;
+    private String username;
 
-    private String name;
+    private String password;
 
-    public Project(Long userId, String name) {
-        this.userId = userId;
-        this.name = name;
-    }
+    private boolean active;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

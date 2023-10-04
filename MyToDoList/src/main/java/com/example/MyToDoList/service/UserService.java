@@ -1,6 +1,6 @@
 package com.example.MyToDoList.service;
 
-import com.example.MyToDoList.model.UserRepository;
+import com.example.MyToDoList.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

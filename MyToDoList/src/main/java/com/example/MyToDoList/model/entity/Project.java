@@ -1,4 +1,4 @@
-package com.example.MyToDoList.model;
+package com.example.MyToDoList.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,5 +1,6 @@
-package com.example.MyToDoList.model;
+package com.example.MyToDoList.model.repository;
 
+import com.example.MyToDoList.model.entity.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

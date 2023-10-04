@@ -1,6 +1,5 @@
 package com.example.MyToDoList.controller;
 
-import com.example.MyToDoList.model.entity.Role;
 import com.example.MyToDoList.model.entity.User;
 import com.example.MyToDoList.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import java.util.Collections;
 public class RegistrationController {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @GetMapping("/registration")
     public String registration() {
@@ -33,7 +32,6 @@ public class RegistrationController {
         }
 
         user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
         userRepository.save(user);
 
         return "redirect:/login";

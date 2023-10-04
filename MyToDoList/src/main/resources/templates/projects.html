@@ -16,7 +16,6 @@
 </div>
 <div>
     <form th:action="@{/projects/add}" method="post">
-        <div><label> User Id: <input type="userId" name="userId"/> </label></div>
         <div><label> Project name: <input type="name" name="name"/> </label></div>
         <div><input type="submit" value="Add"/></div>
     </form>
@@ -34,7 +33,6 @@
             <td colspan="2"> No Books Available </td>
         </tr>
         <tr th:each="book : ${projects}">
-            <td><span th:text="${book.userId}"> Title </span></td>
             <td><span th:text="${book.name}"> Author </span></td>
         </tr>
         </tbody>

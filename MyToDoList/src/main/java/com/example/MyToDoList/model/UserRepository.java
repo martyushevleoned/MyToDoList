@@ -1,6 +1,5 @@
-package com.example.MyToDoList.model.repository;
+package com.example.MyToDoList.model;
 
-import com.example.MyToDoList.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

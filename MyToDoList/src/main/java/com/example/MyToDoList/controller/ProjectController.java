@@ -1,9 +1,8 @@
 package com.example.MyToDoList.controller;
 
-import com.example.MyToDoList.model.entity.Project;
-import com.example.MyToDoList.model.entity.User;
+import com.example.MyToDoList.model.Project;
+import com.example.MyToDoList.model.User;
 import com.example.MyToDoList.model.repository.ProjectRepository;
-import com.example.MyToDoList.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;

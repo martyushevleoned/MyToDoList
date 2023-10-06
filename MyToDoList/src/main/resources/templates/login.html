@@ -1,23 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins%3A400%2C500"/>
-    <link rel="icon" href="/favicon.ico"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#000000"/>
-
-</head>
+<div th:replace="fragments/general.html :: header"></div>
 <body>
 <div class="login">
     <p class="login-title">Войти</p>
     <form th:action="@{/login}" method="post" class="login-form">
-
-
 
         <input class="login-input" type="text" placeholder="Введите логин или email" name="username" id="user_login">
         <br>

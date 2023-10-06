@@ -1,8 +1,10 @@
 package com.example.MyToDoList.controller;
 
+import com.example.MyToDoList.model.dto.ProjectDto;
 import com.example.MyToDoList.model.entity.Project;
 import com.example.MyToDoList.model.entity.User;
 import com.example.MyToDoList.model.repository.ProjectRepository;
+import com.example.MyToDoList.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -16,18 +18,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/projects")
 public class ProjectController {
 
+//    @Autowired
+//    private ProjectRepository projectRepository;
+
     @Autowired
-    private ProjectRepository projectRepository;
+    private ProjectService projectService;
 
 
     @GetMapping("/list")
     public String projects(@AuthenticationPrincipal User user,
                            Model model) {
 
-        Iterable<Project> projects = projectRepository.findByUserId(user.getId());
-        String some = "some text";
+        Iterable<ProjectDto> projects = projectService.getProjectList(user);
         model.addAttribute("projects", projects);
-        model.addAttribute("some", some);
 
         return "projects";
     }
@@ -37,13 +40,10 @@ public class ProjectController {
                              @RequestParam String name,
                              Model model) {
 
-        projectRepository.save(new Project(user.getId(), name));
+        projectService.addProject(user, name);
 
-
-        Iterable<Project> projects = projectRepository.findByUserId(user.getId());
-        String some = "some text";
+        Iterable<ProjectDto> projects = projectService.getProjectList(user);
         model.addAttribute("projects", projects);
-        model.addAttribute("some", some);
 
         return "projects";
     }

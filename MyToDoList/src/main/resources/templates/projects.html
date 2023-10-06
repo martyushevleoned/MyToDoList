@@ -29,11 +29,8 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:if="${projects.empty}">
-            <td colspan="2"> No Books Available </td>
-        </tr>
-        <tr th:each="book : ${projects}">
-            <td><span th:text="${book.name}"> Author </span></td>
+        <tr th:each="project : ${projects}">
+            <td><span th:text="${project.name}"> Author </span></td>
         </tr>
         </tbody>
     </table>

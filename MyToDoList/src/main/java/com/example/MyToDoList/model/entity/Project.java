@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "projects")
 @Data
@@ -14,12 +17,17 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long userId;
-
     private String name;
 
-    public Project(Long userId, String name) {
-        this.userId = userId;
+    @ManyToOne
+    @JoinColumn(name = "userId", foreignKey = @ForeignKey(name = "USR_PRJ_FK"))
+    private User user;
+
+    @OneToMany(mappedBy = "project")
+    private List<Task> tasks = new ArrayList<>();
+
+    public Project(String name, User user) {
         this.name = name;
+        this.user = user;
     }
 }

@@ -9,16 +9,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/projects")
 public class ProjectController {
 
     @Autowired
     private ProjectRepository projectRepository;
 
 
-    @GetMapping("/projects")
+    @GetMapping("/list")
     public String projects(@AuthenticationPrincipal User user,
                            Model model) {
 
@@ -30,7 +32,7 @@ public class ProjectController {
         return "projects";
     }
 
-    @PostMapping("/projects/add")
+    @PostMapping("/add")
     public String addProject(@AuthenticationPrincipal User user,
                              @RequestParam String name,
                              Model model) {

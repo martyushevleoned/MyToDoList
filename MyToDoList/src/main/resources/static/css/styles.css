@@ -1,0 +1,55 @@
+body{
+    font-family: Poppins, 'Source Sans Pro';
+}
+.login {
+    margin: 0 auto;
+    width: 300px;
+    text-align: left;
+    
+  }
+  
+  .login p {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .login form {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .login label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .login input[type="text"],
+  .login input[type="password"] {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #efefff;
+  }
+  
+  .login input[type="submit"] {
+    background-color: #4d47c3;
+    margin-bottom: 20px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0.4rem 6.1rem rgba(77, 71, 195, 0.400000006);
+  }
+  
+  .login input[type="submit"]:hover {
+    background-color: #4d47c3;
+  }
+  .login input[type="submit"] {
+    width: 100%;
+    height: 50px;
+}

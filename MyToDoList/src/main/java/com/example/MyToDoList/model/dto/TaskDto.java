@@ -1,13 +1,14 @@
 package com.example.MyToDoList.model.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ProjectDto {
+public class TaskDto {
 
     Long id;
-    String name;
-    Iterable<TaskDto> tasks;
+    String title;
+    String text;
 }

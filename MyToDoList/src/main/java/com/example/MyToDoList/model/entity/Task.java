@@ -14,7 +14,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
+    private String title;
 
     private String text;
 
@@ -22,8 +22,8 @@ public class Task {
     @JoinColumn(name = "projectId", foreignKey = @ForeignKey(name = "PRJ_TSK_FK"))
     private Project project;
 
-    public Task(String name, String text) {
-        this.name = name;
+    public Task(String title, String text) {
+        this.title = title;
         this.text = text;
     }
 }

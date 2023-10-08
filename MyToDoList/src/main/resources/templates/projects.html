@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+<div th:replace="fragments/general.html :: header"></div>
 <body>
-<h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
-<br>
+<div th:replace="fragments/general.html :: logout"></div>
+<h1>Hello <span th:text="${user.username}"></span> !</h1>
+
+
 <div>
-    <p th:text="'Hello, ' + ${some} + '!'"></p>
-</div>
-<div>
-    <form th:action="@{/projects/add}" method="post">
-        <div><label> Project name: <input type="name" name="name"/> </label></div>
-        <div><input type="submit" value="Add"/></div>
+    <form th:action="@{/projects/add/project}" method="post">
+        <div><label> Project name: <input type="text" name="name"/> </label></div>
+        <div><input type="submit"/></div>
     </form>
 </div>
+
+<p th:text="${user}"></p>
+
 <div>
-    <table>
-        <thead>
-        <tr>
-            <th> Title </th>
-            <th> Author </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="project : ${projects}">
-            <td><span th:text="${project.name}"> Author </span></td>
-        </tr>
-        </tbody>
-    </table>
+    <div th:each="project: ${user.projects}">
+        <p th:text="${project.name}"></p>
+
+        <div th:each="task: ${project.tasks}">
+            <p th:text="${task.title}"></p>
+            <p th:text="${task.text}"></p>
+            <br>
+        </div>
+
+        <form th:action="@{/projects/add/task}" method="post">
+            <div><input type="hidden" name="id" th:value="${project.id}"/></div>
+            <div><label>Task title: <input type="text" name="title"/></label></div>
+            <div><label>Task text: <input type="text" name="text"/></label></div>
+            <div><input type="submit"/></div>
+        </form>
+
+        <br>
+    </div>
 </div>
+
 </body>
 </html>

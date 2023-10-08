@@ -1,9 +1,8 @@
 package com.example.MyToDoList.controller;
 
 import com.example.MyToDoList.model.dto.ProjectDto;
-import com.example.MyToDoList.model.entity.Project;
+import com.example.MyToDoList.model.dto.UserDto;
 import com.example.MyToDoList.model.entity.User;
-import com.example.MyToDoList.model.repository.ProjectRepository;
 import com.example.MyToDoList.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -18,9 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/projects")
 public class ProjectController {
 
-//    @Autowired
-//    private ProjectRepository projectRepository;
-
     @Autowired
     private ProjectService projectService;
 
@@ -29,21 +25,36 @@ public class ProjectController {
     public String projects(@AuthenticationPrincipal User user,
                            Model model) {
 
-        Iterable<ProjectDto> projects = projectService.getProjectList(user);
-        model.addAttribute("projects", projects);
+        UserDto userDto = projectService.getUserDto(user);
+        model.addAttribute("user", userDto);
 
         return "projects";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add/project")
     public String addProject(@AuthenticationPrincipal User user,
                              @RequestParam String name,
                              Model model) {
 
         projectService.addProject(user, name);
 
-        Iterable<ProjectDto> projects = projectService.getProjectList(user);
-        model.addAttribute("projects", projects);
+        UserDto userDto = projectService.getUserDto(user);
+        model.addAttribute("user", userDto);
+
+        return "projects";
+    }
+
+    @PostMapping("/add/task")
+    public String addTask(@AuthenticationPrincipal User user,
+                          @RequestParam Long id,
+                          @RequestParam String title,
+                          @RequestParam String text,
+                          Model model) {
+        
+        projectService.addTask(id, title, text);
+
+        UserDto userDto = projectService.getUserDto(user);
+        model.addAttribute("user", userDto);
 
         return "projects";
     }

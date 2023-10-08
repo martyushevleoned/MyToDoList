@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
 
 <head th:fragment="header">
     <title>My ToDo List</title>
@@ -17,5 +17,9 @@
 <div th:fragment="myFragment">
     <h1>SOME TEXT</h1>
 </div>
+
+<form th:fragment="logout" th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 
 </html>

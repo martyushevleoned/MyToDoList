@@ -50,7 +50,7 @@ public class ProjectController {
                           @RequestParam String title,
                           @RequestParam String text,
                           Model model) {
-        
+
         projectService.addTask(id, title, text);
 
         UserDto userDto = projectService.getUserDto(user);

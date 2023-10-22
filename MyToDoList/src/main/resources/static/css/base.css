@@ -1,0 +1,48 @@
+:root {
+  --bg-color: #454545;
+  --container-color: #785964;
+  --block-color: #D5C7BC;
+  --part-color: #F1FFFA;
+  --hover-color: #93B7BE;
+}
+
+* {
+	font-family: 'Arial';
+	font-size: 20px;
+	padding: 10px;
+	margin: 5px 5px 15px;
+	border-radius: 20px;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: var(--bg-color);
+}
+
+body {
+	border: none;
+	background-color: var(--bg-color);
+}
+
+div {
+	border: 1px solid black;
+}
+
+form {
+	padding: 0;
+	margin: 0;
+	border: none;
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+	border: 1px solid black;
+	background-color: var(--part-color);
+}
+
+input:hover{
+	background-color: var(--hover-color);
+}

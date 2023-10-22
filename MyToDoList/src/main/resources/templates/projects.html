@@ -1,43 +1,58 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
-<head>
-    <link rel="stylesheet" href="/static/css/default.css">
-    <link rel="stylesheet" href="/static/css/projects.css">
-</head>
-<body>
-<div class="block" th:insert ="fragments/general.html :: logout"></div>
-<br>
-<div class="block">
-    <form th:action="@{/projects/add/project}" method="post">
-        <div><label> Project name: <input type="text" name="name"/> </label></div>
-        <div><input type="submit"/></div>
-    </form>
-</div>
-<br>
-<div class="block">
-    <p th:text="${user}"></p>
-</div>
-<br>
-<div class="block">
-    <div class="block" th:each="project: ${user.projects}">
-        <p th:text="${project.name}"></p>
-
-        <div class="block" th:each="task: ${project.tasks}">
-            <p th:text="${task.title}"></p>
-            <p th:text="${task.text}"></p>
-            <br>
+    <head>
+        <link rel="stylesheet" href="/static/css/base.css">
+        <link rel="stylesheet" href="/static/css/projects.css">
+        <title>My ToDo List</title>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header-content">
+                <div class="header-block">
+                    Hello,<span th:text="${user.username}"></span>
+                </div>
+                <form th:fragment="logout" th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign out">
+                </form>
+            </div>
+            <div class="header-content">
+                <form th:action="@{/projects/add/project}" method="post">
+                    <input type="text" name="name" placeholder="project name" value="project name">
+                    <input type="submit" value="Add project">
+                </form>
+            </div>
         </div>
 
-        <form th:action="@{/projects/add/task}" method="post">
-            <div><input type="hidden" name="id" th:value="${project.id}"/></div>
-            <div><label>Task title: <input type="text" name="title"/></label></div>
-            <div><label>Task text: <input type="text" name="text"/></label></div>
-            <div><input type="submit"/></div>
-        </form>
+        <div class="wrapper">
+            <div class="project" th:each="project: ${user.projects}">
 
-        <br>
-    </div>
-</div>
+                <div class="project-content">
+                    <div class="project-name"><span th:text="${project.name}"></span></div>
+                </div>
 
-</body>
+                <div class="project-content">
+                    <div class="task" th:each="task: ${project.tasks}">
+                        <div class="title">
+                            <span th:text="${task.title}"></span>
+                        </div>
+                        <div class="text">
+                            <span th:text="${task.text}"></span>
+                        </div>
+                    </div>
+
+                    <!-- ADD TASK -->
+                    <div class="task">
+                        <form th:action="@{/projects/add/task}" method="post">
+                            <input type="hidden" name="id" th:value="${project.id}"/>
+                            <input type="text" name="title" placeholder="title" value="title">
+                            <input type="text" name="text" placeholder="description" value="description">
+                            <input type="submit" value="Commit">
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </body>
 </html>

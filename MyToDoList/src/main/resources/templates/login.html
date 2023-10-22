@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
-<div th:replace="fragments/general.html :: header"></div>
-<body>
-<div class="login">
-    <p class="login-title">Войти</p>
-    <form th:action="@{/login}" method="post" class="login-form">
+<head>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <title>My ToDo List</title>
+</head>
+    <body>
+    <div class="wrapper">
+        <form th:action="@{/login}" method="post">
 
-        <input class="login-input" type="text" placeholder="Введите логин или email" name="username" id="user_login">
-        <br>
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="submit" value="Log In">
+        </form>
+        <form th:action="@{/registration}" method="get">
 
-        <input class="login-input" type="password" placeholder="Введите пароль" name="password" id="password">
-        <br>
-
-        <input class="login-submit" type="submit" value="Войти" name="login">
-        <br>
-
-    </form>
-    <form th:action="@{/registration}" method="get" class="login-form">
-
-        <input class="login-submit" type="submit" value="Зaрегестрироваться" name="regestration">
-
-    </form>
-</div>
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
 </body>
-<script>
-</script>
 </html>

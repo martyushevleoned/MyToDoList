@@ -1,16 +1,49 @@
-* {
-	font-size: 20px;
-	font-family: Arial;
-	text-align: justify;
+/*HEADER*/
+
+div.header {
+	background-color: var(--container-color);
 }
 
-body {
-    padding: 30px;
+div.header-content {
+	background-color: var(--block-color);
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
-div.block {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 0 0 20px;
+div.header-block {
+	background-color: var(--part-color);
+}
+
+/*WRAPPER*/
+
+div.wrapper {
+	background-color: var(--container-color);
+}
+
+div.project {
+	background-color: var(--block-color);
+}
+
+div.project-content {
+	margin: 0;
+	padding: 0;
+	border: none;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+div.project-name {
+	flex-grow: 1;
+	background-color: var(--part-color);
+}
+
+div.task {
+	min-width: 20%;
+	max-width: 45%;
+	flex-basis: 200px;
+	flex-grow: 1;
+	flex-shrink: 1;
+	background-color: var(--part-color);
 }

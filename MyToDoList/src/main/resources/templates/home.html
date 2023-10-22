@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
-<div th:replace="fragments/general.html :: header">
-</div>
+<head>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <title>My ToDo List</title>
+</head>
 <body>
-<h1>Welcome!</h1>
-<div th:replace="fragments/general.html :: myFragment"></div>
-<p>Click <a th:href="@{/projects/list}">here</a> to see a projects.</p>
+<div class="wrapper">
+    <form th:action="@{/projects/list}" method="get">
+        <input type="submit" value="My Projects">
+    </form>
+</div>
 </body>
 </html>

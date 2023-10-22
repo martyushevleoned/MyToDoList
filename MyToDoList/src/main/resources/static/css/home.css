@@ -1,0 +1,6 @@
+div.wrapper {
+	margin: 0 auto;
+	min-width: 300px;
+	width: 20%;
+	background-color: var(--container-color);
+}

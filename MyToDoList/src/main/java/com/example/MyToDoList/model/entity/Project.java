@@ -23,7 +23,7 @@ public class Project {
     @JoinColumn(name = "userId", foreignKey = @ForeignKey(name = "USR_PRJ_FK"))
     private User user;
 
-    @OneToMany(mappedBy = "project")
+    @OneToMany(mappedBy = "project", orphanRemoval = true)
     private List<Task> tasks = new ArrayList<>();
 
     public Project(String name, User user) {

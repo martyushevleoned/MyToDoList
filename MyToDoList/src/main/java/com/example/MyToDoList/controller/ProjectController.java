@@ -1,6 +1,5 @@
 package com.example.MyToDoList.controller;
 
-import com.example.MyToDoList.model.dto.ProjectDto;
 import com.example.MyToDoList.model.dto.UserDto;
 import com.example.MyToDoList.model.entity.User;
 import com.example.MyToDoList.service.ProjectService;
@@ -51,7 +50,7 @@ public class ProjectController {
                           @RequestParam String text,
                           Model model) {
 
-        projectService.addTask(id, title, text);
+        projectService.addTask(user, id, title, text);
 
         UserDto userDto = projectService.getUserDto(user);
         model.addAttribute("user", userDto);
@@ -59,4 +58,29 @@ public class ProjectController {
         return "projects";
     }
 
+    @PostMapping("/delete/project")
+    public String deleteProject(@AuthenticationPrincipal User user,
+                              @RequestParam Long projectId,
+                              Model model) {
+
+        projectService.deleteProject(user, projectId);
+
+        UserDto userDto = projectService.getUserDto(user);
+        model.addAttribute("user", userDto);
+
+        return "projects";
+    }
+
+    @PostMapping("/delete/task")
+    public String deleteTask(@AuthenticationPrincipal User user,
+                             @RequestParam Long taskId,
+                             Model model) {
+
+        projectService.deleteTask(user, taskId);
+
+        UserDto userDto = projectService.getUserDto(user);
+        model.addAttribute("user", userDto);
+
+        return "projects";
+    }
 }

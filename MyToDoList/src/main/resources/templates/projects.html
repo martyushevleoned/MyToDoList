@@ -22,6 +22,11 @@
                 <span>Hello,</span>
                 <span th:text="${user.username}"></span>
             </div>
+            <form th:action="@{/home}" method="get">
+                <div class="content no-padding">
+                    <input type="submit" value="home">
+                </div>
+            </form>
             <form th:fragment="logout" th:action="@{/logout}" method="post">
                 <div class="content no-padding">
                     <input type="submit" value="Sign out">
@@ -35,6 +40,12 @@
             <div class="content">
                 <span th:text="${project.name}">project name</span>
             </div>
+            <form th:action="@{/projects/delete/project}" method="post">
+                <input type="hidden" name="projectId" th:value="${project.id}"/>
+                <div class="content no-padding">
+                    <input type="submit" value="  Delete  ">
+                </div>
+            </form>
         </div>
         <div class="project-content">
             <div class="task content" th:each="task: ${project.tasks}">
@@ -44,6 +55,12 @@
                 <div>
                     <span th:text="${task.text}">title</span>
                 </div>
+                <form th:action="@{/projects/delete/task}" method="post">
+                    <input type="hidden" name="taskId" th:value="${task.id}"/>
+                    <div class="content no-padding">
+                        <input type="submit" value="Delete">
+                    </div>
+                </form>
             </div>
             <!-- ADD TASK -->
             <div class="task content">

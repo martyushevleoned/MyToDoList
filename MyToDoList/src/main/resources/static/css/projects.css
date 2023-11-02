@@ -22,6 +22,7 @@ div.project-content {
 }
 
 div.task {
-	flex-basis: 200px;
+    min-width: 200px;
+	flex-basis: 15%;
 	flex-grow: 1;
 }

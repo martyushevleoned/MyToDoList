@@ -5,18 +5,24 @@
     <link rel="stylesheet" href="/static/css/login.css">
     <title>My ToDo List</title>
 </head>
-    <body>
-    <div class="wrapper">
-        <form th:action="@{/login}" method="post">
-
+<body>
+<div class="wrapper">
+    <form th:action="@{/login}" method="post">
+        <div class="no-padding">
             <input type="text" name="username" placeholder="username">
+        </div>
+        <div class="no-padding">
             <input type="password" name="password" placeholder="password">
+        </div>
+        <div class="no-padding">
             <input type="submit" value="Log In">
-        </form>
-        <form th:action="@{/registration}" method="get">
-
+        </div>
+    </form>
+    <form th:action="@{/registration}" method="get">
+        <div class="no-padding">
             <input type="submit" value="Sign Up">
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>

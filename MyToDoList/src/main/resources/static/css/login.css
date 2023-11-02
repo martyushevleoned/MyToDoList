@@ -1,6 +1,6 @@
 div.wrapper {
-	margin: 0 auto;
-	min-width: 300px;
-	width: 20%;
+	width: 75%;
+	max-width: 300px;
+	margin: var(--default-margin) auto var(--default-margin);
 	background-color: var(--container-color);
 }

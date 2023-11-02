@@ -1,49 +1,27 @@
-/*HEADER*/
+div.header, div.project {
+	background-color: var(--container-color);
+}
+
+div.header-content, div.project-content {
+	background-color: var(--block-color);
+}
 
 div.header {
-	background-color: var(--container-color);
+	display: flex;
+	justify-content: space-between;
 }
 
 div.header-content {
-	background-color: var(--block-color);
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-}
-
-div.header-block {
-	background-color: var(--part-color);
-}
-
-/*WRAPPER*/
-
-div.wrapper {
-	background-color: var(--container-color);
-}
-
-div.project {
-	background-color: var(--block-color);
+	flex-grow: 1;
 }
 
 div.project-content {
-	margin: 0;
-	padding: 0;
-	border: none;
 	display: flex;
-	justify-content: space-between;
 	flex-wrap: wrap;
-}
-
-div.project-name {
-	flex-grow: 1;
-	background-color: var(--part-color);
+	justify-content: space-between;
 }
 
 div.task {
-	min-width: 20%;
-	max-width: 45%;
 	flex-basis: 200px;
 	flex-grow: 1;
-	flex-shrink: 1;
-	background-color: var(--part-color);
 }

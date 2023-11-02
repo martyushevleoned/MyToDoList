@@ -2,47 +2,55 @@
   --bg-color: #454545;
   --container-color: #785964;
   --block-color: #D5C7BC;
-  --part-color: #F1FFFA;
+  --content-color: #F1FFFA;
   --hover-color: #93B7BE;
+
+  --default-margin: 10px;
+  --default-padding: 10px;
+  --default-border-radius: 7px;
+  --font-size: 20px;
 }
 
 * {
 	font-family: 'Arial';
-	font-size: 20px;
-	padding: 10px;
-	margin: 5px 5px 15px;
-	border-radius: 20px;
+	font-size: var(--font-size);
+	padding: 0;
+	margin: 0;
+	border: none;
+	box-sizing: border-box;
+}
+
+div {
+	margin: var(--default-margin);
+	padding: var(--default-padding);
+
+	border: 1px solid black;
+	border-radius: var(--default-border-radius);
 }
 
 html {
-	margin: 0;
-	padding: 0;
-	border: none;
 	background-color: var(--bg-color);
 }
 
 body {
-	border: none;
 	background-color: var(--bg-color);
 }
 
-div {
-	border: 1px solid black;
-}
-
-form {
-	padding: 0;
-	margin: 0;
-	border: none;
-	display: flex;
-	flex-direction: column;
-}
-
 input {
-	border: 1px solid black;
-	background-color: var(--part-color);
+	text-indent: var(--default-padding);
+	height: calc(var(--font-size) + var(--default-padding) * 2);
+	width: 100%;
 }
 
 input:hover{
 	background-color: var(--hover-color);
+}
+
+.content{
+	background-color: var(--content-color);
+}
+
+.no-padding{
+	padding: 0;
+	overflow: hidden;
 }

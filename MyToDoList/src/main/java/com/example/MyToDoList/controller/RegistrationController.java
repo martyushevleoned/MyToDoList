@@ -1,7 +1,7 @@
 package com.example.MyToDoList.controller;
 
 import com.example.MyToDoList.model.entity.User;
-import com.example.MyToDoList.model.repository.UserRepository;
+import com.example.MyToDoList.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class RegistrationController {
 
     @Autowired
-    private UserRepository userRepository;
+    private RegistrationService registrationService;
 
     @GetMapping("/registration")
     public String registration() {
@@ -22,15 +22,13 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String addUser(User user, Model model) {
 
-        User userFromDB = userRepository.findByUsername(user.getUsername());
-
-        if (userFromDB != null) {
-            model.addAttribute("my_message", "User already exists");
+        if (!registrationService.userDataIsCorrect(user.getUsername(), user.getPassword()))
             return "registration";
-        }
 
-        user.setActive(true);
-        userRepository.save(user);
+        if (registrationService.isUserExist(user))
+            return "registration";
+
+        registrationService.saveUser(user);
 
         return "redirect:/login";
     }

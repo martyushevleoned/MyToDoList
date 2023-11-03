@@ -29,6 +29,15 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Project> projects = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<Message> messages = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<UserChat> userChats = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Chat> chats = new ArrayList<>();
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

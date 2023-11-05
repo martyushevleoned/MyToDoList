@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "chats")
+@Table(name = "group_projects")
 @Data
 @NoArgsConstructor
-public class Chat {
+public class GroupProject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,9 +23,12 @@ public class Chat {
     @JoinColumn(name = "ownerId", foreignKey = @ForeignKey(name = "USR_CHT_FK"))
     private User user;
 
-    @OneToMany(mappedBy = "chat")
+    @OneToMany(mappedBy = "groupProject")
     private List<Message> messages = new ArrayList<>();
 
-    @OneToMany(mappedBy = "chat")
-    private List<UserChat> userChats = new ArrayList<>();
+    @OneToMany(mappedBy = "groupProject")
+    private List<UserGroup> userGroups = new ArrayList<>();
+
+    @OneToMany(mappedBy = "groupProject", orphanRemoval = true)
+    private List<GroupTask> groupTasks = new ArrayList<>();
 }

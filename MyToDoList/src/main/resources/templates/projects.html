@@ -8,16 +8,6 @@
     <body>
     <div class="header">
         <div class="header-content">
-            <form th:action="@{/projects/add/project}" method="post">
-                <div class="content no-padding">
-                    <input type="text" name="name" placeholder="project name" value="project name">
-                </div>
-                <div class="content no-padding">
-                    <input type="submit" value="Add project">
-                </div>
-            </form>
-        </div>
-        <div class="header-content">
             <div class="content">
                 <span>Hello,</span>
                 <span th:text="${user.username}"></span>
@@ -30,6 +20,16 @@
             <form th:fragment="logout" th:action="@{/logout}" method="post">
                 <div class="content no-padding">
                     <input type="submit" value="Sign out">
+                </div>
+            </form>
+        </div>
+        <div class="header-content">
+            <form th:action="@{/projects/add/project}" method="post">
+                <div class="content no-padding">
+                    <input type="text" name="name" placeholder="project name" value="project name">
+                </div>
+                <div class="content no-padding">
+                    <input type="submit" value="Add project">
                 </div>
             </form>
         </div>

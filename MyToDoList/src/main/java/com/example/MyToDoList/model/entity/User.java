@@ -33,10 +33,10 @@ public class User implements UserDetails {
     private List<Message> messages = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<UserChat> userChats = new ArrayList<>();
+    private List<UserGroup> userGroups = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
-    private List<Chat> chats = new ArrayList<>();
+    private List<GroupProject> groupProjects = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

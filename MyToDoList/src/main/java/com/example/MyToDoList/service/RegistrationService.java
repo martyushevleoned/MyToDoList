@@ -13,10 +13,13 @@ public class RegistrationService {
 
     public boolean userDataIsCorrect(String username, String password) {
 
-        if (username.length() < 2)
+        int minTextLength = 2;
+        int maxTextLength = 40;
+
+        if (minTextLength > username.length() ||  username.length() > maxTextLength)
             return false;
 
-        if (password.length() < 2)
+        if (minTextLength > password.length() || password.length() > maxTextLength)
             return false;
 
         return true;

@@ -8,11 +8,13 @@ div.header-content, div.project-content {
 
 div.header {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
 div.header-content {
 	flex-grow: 1;
+	flex-basis: 200px;
 }
 
 div.project-content {

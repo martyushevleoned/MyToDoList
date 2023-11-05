@@ -16,7 +16,7 @@ public class Message {
 
     @ManyToOne
     @JoinColumn(name = "chatId", foreignKey = @ForeignKey(name = "CHT_FK"))
-    private Chat chat;
+    private GroupProject groupProject;
 
     @ManyToOne
     @JoinColumn(name = "userId", foreignKey = @ForeignKey(name = "USR_CHT_FK"))

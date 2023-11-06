@@ -17,6 +17,7 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(columnDefinition = "TEXT")
     private String name;
 
     @ManyToOne

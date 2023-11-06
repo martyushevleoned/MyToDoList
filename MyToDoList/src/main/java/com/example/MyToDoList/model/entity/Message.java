@@ -22,5 +22,6 @@ public class Message {
     @JoinColumn(name = "userId", foreignKey = @ForeignKey(name = "USR_CHT_FK"))
     private User user;
 
+    @Column(columnDefinition = "TEXT")
     private String text;
 }

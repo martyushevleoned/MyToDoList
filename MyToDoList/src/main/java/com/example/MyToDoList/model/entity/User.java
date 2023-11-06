@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "username", name = "USR_NAM_UK")})
+@Table(name = "users")
 @Data
 @NoArgsConstructor
 public class User implements UserDetails {
@@ -20,10 +20,13 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(columnDefinition = "TEXT", unique = true)
     private String username;
 
+    @Column(columnDefinition = "TEXT")
     private String password;
 
+    @Column
     private boolean active;
 
     @OneToMany(mappedBy = "user")
